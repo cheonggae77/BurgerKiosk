@@ -66,7 +66,6 @@
             btnOrder.TabIndex = 4;
             btnOrder.Text = "주문하기";
             btnOrder.UseVisualStyleBackColor = false;
-            btnOrder.Click += btnOrder_Click;
             // 
             // grbMenu
             // 
@@ -127,6 +126,7 @@
             rdoChickenBurger.TabStop = false;
             rdoChickenBurger.Text = "치킨버거";
             rdoChickenBurger.UseVisualStyleBackColor = true;
+            rdoChickenBurger.CheckedChanged += Menu_CheckedChanged;
             // 
             // rdoBulgogiBurger
             // 
@@ -140,6 +140,7 @@
             rdoBulgogiBurger.TabStop = false;
             rdoBulgogiBurger.Text = "불고기버거";
             rdoBulgogiBurger.UseVisualStyleBackColor = true;
+            rdoBulgogiBurger.CheckedChanged += Menu_CheckedChanged;
             // 
             // rdoHamBurger
             // 
@@ -154,6 +155,7 @@
             rdoHamBurger.TabStop = false;
             rdoHamBurger.Text = "햄버거";
             rdoHamBurger.UseVisualStyleBackColor = true;
+            rdoHamBurger.CheckedChanged += Menu_CheckedChanged;
             // 
             // grbAddMenu
             // 
@@ -182,6 +184,7 @@
             chkSause.TabStop = false;
             chkSause.Text = "소스 추가";
             chkSause.UseVisualStyleBackColor = true;
+            chkSause.CheckedChanged += Menu_CheckedChanged;
             // 
             // chkCheese
             // 
@@ -195,6 +198,7 @@
             chkCheese.TabStop = false;
             chkCheese.Text = "치즈 추가";
             chkCheese.UseVisualStyleBackColor = true;
+            chkCheese.CheckedChanged += Menu_CheckedChanged;
             // 
             // chkCola
             // 
@@ -208,6 +212,7 @@
             chkCola.TabStop = false;
             chkCola.Text = "콜라";
             chkCola.UseVisualStyleBackColor = true;
+            chkCola.CheckedChanged += Menu_CheckedChanged;
             // 
             // chkPotato
             // 
@@ -221,6 +226,7 @@
             chkPotato.TabStop = false;
             chkPotato.Text = "감자튀김";
             chkPotato.UseVisualStyleBackColor = true;
+            chkPotato.CheckedChanged += Menu_CheckedChanged;
             // 
             // grbMenuList
             // 

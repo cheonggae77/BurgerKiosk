@@ -9,6 +9,7 @@
         {
             InitializeComponent();
             tabCycleControls = [btnOrder, btnClear, rdoHamBurger, chkPotato];
+            
         }
 
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
@@ -39,9 +40,15 @@
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void btnOrder_Click(object sender, EventArgs e)
+        private void Menu_CheckedChanged(object sender, EventArgs e)
         {
+            UpdateOrder();
+        }
 
+        private void UpdateOrder()
+        {
+            lstOrder.Items.Clear();
+            totalCost = 0;
 
             if (rdoHamBurger.Checked)
             {
@@ -58,6 +65,7 @@
                 lstOrder.Items.Add("치킨버거 3,000원");
                 totalCost += 3000;
             }
+
             if (chkPotato.Checked)
             {
                 lstOrder.Items.Add("감자튀김 3,500원");
@@ -78,10 +86,10 @@
                 lstOrder.Items.Add("소스 500원");
                 totalCost += 500;
             }
-            if (!rdoHamBurger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked && !chkPotato.Checked && !chkCola.Checked && !chkCheese.Checked && !chkSause.Checked)
-            {
-                lblTotalCost.Text = "메뉴를 선택해주세요.";
 
+            if (totalCost == 0)
+            {
+                lblTotalCost.Text = "총 금액 : 0원";
             }
             else
             {
