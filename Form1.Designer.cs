@@ -31,26 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnOrder = new Button();
             grbMenu = new GroupBox();
-            pibChikenBurger = new PictureBox();
-            pibBeefBurger = new PictureBox();
-            pibburger = new PictureBox();
-            rbtnChikenBurger = new RadioButton();
-            rbtnBeefBurger = new RadioButton();
-            rbtnBurger = new RadioButton();
+            picChickenBurger = new PictureBox();
+            picBulgogiBurger = new PictureBox();
+            picHamBurger = new PictureBox();
+            rdoChickenBurger = new RadioButton();
+            rdoBulgogiBurger = new RadioButton();
+            rdoHamBurger = new RadioButton();
             grbAddMenu = new GroupBox();
-            chkAddsorse = new CheckBox();
-            chkAddchize = new CheckBox();
-            chkcola = new CheckBox();
-            chkkamti = new CheckBox();
+            chkSause = new CheckBox();
+            chkCheese = new CheckBox();
+            chkCola = new CheckBox();
+            chkPotato = new CheckBox();
             grbMenuList = new GroupBox();
-            lblTitle = new Label();
-            libMenuList = new ListBox();
+            lblTotalCost = new Label();
+            lstOrder = new ListBox();
+            lblAppName = new Label();
             btnClear = new Button();
-            lblStatus = new Label();
             grbMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pibChikenBurger).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pibBeefBurger).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pibburger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picChickenBurger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picBulgogiBurger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)picHamBurger).BeginInit();
             grbAddMenu.SuspendLayout();
             grbMenuList.SuspendLayout();
             SuspendLayout();
@@ -66,15 +66,16 @@
             btnOrder.TabIndex = 0;
             btnOrder.Text = "주문하기";
             btnOrder.UseVisualStyleBackColor = false;
+            btnOrder.Click += btnOrder_Click;
             // 
             // grbMenu
             // 
-            grbMenu.Controls.Add(pibChikenBurger);
-            grbMenu.Controls.Add(pibBeefBurger);
-            grbMenu.Controls.Add(pibburger);
-            grbMenu.Controls.Add(rbtnChikenBurger);
-            grbMenu.Controls.Add(rbtnBeefBurger);
-            grbMenu.Controls.Add(rbtnBurger);
+            grbMenu.Controls.Add(picChickenBurger);
+            grbMenu.Controls.Add(picBulgogiBurger);
+            grbMenu.Controls.Add(picHamBurger);
+            grbMenu.Controls.Add(rdoChickenBurger);
+            grbMenu.Controls.Add(rdoBulgogiBurger);
+            grbMenu.Controls.Add(rdoHamBurger);
             grbMenu.Font = new Font("맑은 고딕", 18F);
             grbMenu.ForeColor = Color.Red;
             grbMenu.Location = new Point(64, 138);
@@ -84,171 +85,183 @@
             grbMenu.TabStop = false;
             grbMenu.Text = "메뉴 선택";
             // 
-            // pibChikenBurger
+            // picChickenBurger
             // 
-            pibChikenBurger.Image = Properties.Resources.치킨버거;
-            pibChikenBurger.Location = new Point(180, 287);
-            pibChikenBurger.Name = "pibChikenBurger";
-            pibChikenBurger.Size = new Size(111, 102);
-            pibChikenBurger.SizeMode = PictureBoxSizeMode.Zoom;
-            pibChikenBurger.TabIndex = 5;
-            pibChikenBurger.TabStop = false;
+            picChickenBurger.Image = Properties.Resources.치킨버거;
+            picChickenBurger.Location = new Point(180, 287);
+            picChickenBurger.Name = "picChickenBurger";
+            picChickenBurger.Size = new Size(111, 102);
+            picChickenBurger.SizeMode = PictureBoxSizeMode.Zoom;
+            picChickenBurger.TabIndex = 5;
+            picChickenBurger.TabStop = false;
             // 
-            // pibBeefBurger
+            // picBulgogiBurger
             // 
-            pibBeefBurger.Image = Properties.Resources.불고기버거;
-            pibBeefBurger.Location = new Point(180, 162);
-            pibBeefBurger.Name = "pibBeefBurger";
-            pibBeefBurger.Size = new Size(111, 102);
-            pibBeefBurger.SizeMode = PictureBoxSizeMode.Zoom;
-            pibBeefBurger.TabIndex = 4;
-            pibBeefBurger.TabStop = false;
+            picBulgogiBurger.Image = Properties.Resources.불고기버거;
+            picBulgogiBurger.Location = new Point(180, 162);
+            picBulgogiBurger.Name = "picBulgogiBurger";
+            picBulgogiBurger.Size = new Size(111, 102);
+            picBulgogiBurger.SizeMode = PictureBoxSizeMode.Zoom;
+            picBulgogiBurger.TabIndex = 4;
+            picBulgogiBurger.TabStop = false;
             // 
-            // pibburger
+            // picHamBurger
             // 
-            pibburger.Image = (Image)resources.GetObject("pibburger.Image");
-            pibburger.Location = new Point(180, 38);
-            pibburger.Name = "pibburger";
-            pibburger.Size = new Size(111, 102);
-            pibburger.SizeMode = PictureBoxSizeMode.Zoom;
-            pibburger.TabIndex = 3;
-            pibburger.TabStop = false;
+            picHamBurger.Image = (Image)resources.GetObject("picHamBurger.Image");
+            picHamBurger.Location = new Point(180, 38);
+            picHamBurger.Name = "picHamBurger";
+            picHamBurger.Size = new Size(111, 102);
+            picHamBurger.SizeMode = PictureBoxSizeMode.Zoom;
+            picHamBurger.TabIndex = 3;
+            picHamBurger.TabStop = false;
             // 
-            // rbtnChikenBurger
+            // rdoChickenBurger
             // 
-            rbtnChikenBurger.AutoSize = true;
-            rbtnChikenBurger.Font = new Font("맑은 고딕", 15F);
-            rbtnChikenBurger.ForeColor = Color.Black;
-            rbtnChikenBurger.Location = new Point(19, 313);
-            rbtnChikenBurger.Name = "rbtnChikenBurger";
-            rbtnChikenBurger.Size = new Size(136, 39);
-            rbtnChikenBurger.TabIndex = 2;
-            rbtnChikenBurger.TabStop = true;
-            rbtnChikenBurger.Text = "치킨버거";
-            rbtnChikenBurger.UseVisualStyleBackColor = true;
+            rdoChickenBurger.AutoSize = true;
+            rdoChickenBurger.Font = new Font("맑은 고딕", 15F);
+            rdoChickenBurger.ForeColor = Color.Black;
+            rdoChickenBurger.Location = new Point(19, 313);
+            rdoChickenBurger.Name = "rdoChickenBurger";
+            rdoChickenBurger.Size = new Size(136, 39);
+            rdoChickenBurger.TabIndex = 2;
+            rdoChickenBurger.TabStop = true;
+            rdoChickenBurger.Text = "치킨버거";
+            rdoChickenBurger.UseVisualStyleBackColor = true;
             // 
-            // rbtnBeefBurger
+            // rdoBulgogiBurger
             // 
-            rbtnBeefBurger.AutoSize = true;
-            rbtnBeefBurger.Font = new Font("맑은 고딕", 15F);
-            rbtnBeefBurger.ForeColor = Color.Black;
-            rbtnBeefBurger.Location = new Point(19, 186);
-            rbtnBeefBurger.Name = "rbtnBeefBurger";
-            rbtnBeefBurger.Size = new Size(161, 39);
-            rbtnBeefBurger.TabIndex = 1;
-            rbtnBeefBurger.TabStop = true;
-            rbtnBeefBurger.Text = "불고기버거";
-            rbtnBeefBurger.UseVisualStyleBackColor = true;
+            rdoBulgogiBurger.AutoSize = true;
+            rdoBulgogiBurger.Font = new Font("맑은 고딕", 15F);
+            rdoBulgogiBurger.ForeColor = Color.Black;
+            rdoBulgogiBurger.Location = new Point(19, 186);
+            rdoBulgogiBurger.Name = "rdoBulgogiBurger";
+            rdoBulgogiBurger.Size = new Size(161, 39);
+            rdoBulgogiBurger.TabIndex = 1;
+            rdoBulgogiBurger.TabStop = true;
+            rdoBulgogiBurger.Text = "불고기버거";
+            rdoBulgogiBurger.UseVisualStyleBackColor = true;
             // 
-            // rbtnBurger
+            // rdoHamBurger
             // 
-            rbtnBurger.AllowDrop = true;
-            rbtnBurger.AutoSize = true;
-            rbtnBurger.Font = new Font("맑은 고딕", 15F);
-            rbtnBurger.ForeColor = Color.Black;
-            rbtnBurger.Location = new Point(19, 67);
-            rbtnBurger.Name = "rbtnBurger";
-            rbtnBurger.Size = new Size(111, 39);
-            rbtnBurger.TabIndex = 0;
-            rbtnBurger.TabStop = true;
-            rbtnBurger.Text = "햄버거";
-            rbtnBurger.UseVisualStyleBackColor = true;
+            rdoHamBurger.AllowDrop = true;
+            rdoHamBurger.AutoSize = true;
+            rdoHamBurger.Font = new Font("맑은 고딕", 15F);
+            rdoHamBurger.ForeColor = Color.Black;
+            rdoHamBurger.Location = new Point(19, 67);
+            rdoHamBurger.Name = "rdoHamBurger";
+            rdoHamBurger.Size = new Size(111, 39);
+            rdoHamBurger.TabIndex = 0;
+            rdoHamBurger.TabStop = true;
+            rdoHamBurger.Text = "햄버거";
+            rdoHamBurger.UseVisualStyleBackColor = true;
             // 
             // grbAddMenu
             // 
-            grbAddMenu.Controls.Add(chkAddsorse);
-            grbAddMenu.Controls.Add(chkAddchize);
-            grbAddMenu.Controls.Add(chkcola);
-            grbAddMenu.Controls.Add(chkkamti);
+            grbAddMenu.Controls.Add(chkSause);
+            grbAddMenu.Controls.Add(chkCheese);
+            grbAddMenu.Controls.Add(chkCola);
+            grbAddMenu.Controls.Add(chkPotato);
             grbAddMenu.Font = new Font("맑은 고딕", 18F);
             grbAddMenu.ForeColor = Color.Red;
             grbAddMenu.Location = new Point(407, 138);
             grbAddMenu.Name = "grbAddMenu";
-            grbAddMenu.Size = new Size(211, 253);
+            grbAddMenu.Size = new Size(178, 315);
             grbAddMenu.TabIndex = 2;
             grbAddMenu.TabStop = false;
             grbAddMenu.Text = "추가 메뉴";
             // 
-            // chkAddsorse
+            // chkSause
             // 
-            chkAddsorse.AutoSize = true;
-            chkAddsorse.Font = new Font("맑은 고딕", 12F);
-            chkAddsorse.ForeColor = Color.Black;
-            chkAddsorse.Location = new Point(17, 184);
-            chkAddsorse.Name = "chkAddsorse";
-            chkAddsorse.Size = new Size(121, 32);
-            chkAddsorse.TabIndex = 3;
-            chkAddsorse.Text = "소스 추가";
-            chkAddsorse.UseVisualStyleBackColor = true;
+            chkSause.AutoSize = true;
+            chkSause.Font = new Font("맑은 고딕", 15F);
+            chkSause.ForeColor = Color.Black;
+            chkSause.Location = new Point(17, 253);
+            chkSause.Name = "chkSause";
+            chkSause.Size = new Size(146, 39);
+            chkSause.TabIndex = 3;
+            chkSause.Text = "소스 추가";
+            chkSause.UseVisualStyleBackColor = true;
             // 
-            // chkAddchize
+            // chkCheese
             // 
-            chkAddchize.AutoSize = true;
-            chkAddchize.Font = new Font("맑은 고딕", 12F);
-            chkAddchize.ForeColor = Color.Black;
-            chkAddchize.Location = new Point(17, 146);
-            chkAddchize.Name = "chkAddchize";
-            chkAddchize.Size = new Size(121, 32);
-            chkAddchize.TabIndex = 2;
-            chkAddchize.Text = "치즈 추가";
-            chkAddchize.UseVisualStyleBackColor = true;
+            chkCheese.AutoSize = true;
+            chkCheese.Font = new Font("맑은 고딕", 15F);
+            chkCheese.ForeColor = Color.Black;
+            chkCheese.Location = new Point(17, 192);
+            chkCheese.Name = "chkCheese";
+            chkCheese.Size = new Size(146, 39);
+            chkCheese.TabIndex = 2;
+            chkCheese.Text = "치즈 추가";
+            chkCheese.UseVisualStyleBackColor = true;
             // 
-            // chkcola
+            // chkCola
             // 
-            chkcola.AutoSize = true;
-            chkcola.Font = new Font("맑은 고딕", 12F);
-            chkcola.ForeColor = Color.Black;
-            chkcola.Location = new Point(17, 108);
-            chkcola.Name = "chkcola";
-            chkcola.Size = new Size(74, 32);
-            chkcola.TabIndex = 1;
-            chkcola.Text = "콜라";
-            chkcola.UseVisualStyleBackColor = true;
+            chkCola.AutoSize = true;
+            chkCola.Font = new Font("맑은 고딕", 15F);
+            chkCola.ForeColor = Color.Black;
+            chkCola.Location = new Point(17, 131);
+            chkCola.Name = "chkCola";
+            chkCola.Size = new Size(87, 39);
+            chkCola.TabIndex = 1;
+            chkCola.Text = "콜라";
+            chkCola.UseVisualStyleBackColor = true;
             // 
-            // chkkamti
+            // chkPotato
             // 
-            chkkamti.AutoSize = true;
-            chkkamti.Font = new Font("맑은 고딕", 12F);
-            chkkamti.ForeColor = Color.Black;
-            chkkamti.Location = new Point(17, 70);
-            chkkamti.Name = "chkkamti";
-            chkkamti.Size = new Size(114, 32);
-            chkkamti.TabIndex = 0;
-            chkkamti.Text = "감자튀김";
-            chkkamti.UseVisualStyleBackColor = true;
+            chkPotato.AutoSize = true;
+            chkPotato.Font = new Font("맑은 고딕", 15F);
+            chkPotato.ForeColor = Color.Black;
+            chkPotato.Location = new Point(17, 70);
+            chkPotato.Name = "chkPotato";
+            chkPotato.Size = new Size(137, 39);
+            chkPotato.TabIndex = 0;
+            chkPotato.Text = "감자튀김";
+            chkPotato.UseVisualStyleBackColor = true;
             // 
             // grbMenuList
             // 
-            grbMenuList.Controls.Add(lblStatus);
-            grbMenuList.Controls.Add(libMenuList);
+            grbMenuList.Controls.Add(lblTotalCost);
+            grbMenuList.Controls.Add(lstOrder);
             grbMenuList.Font = new Font("맑은 고딕", 18F);
             grbMenuList.ForeColor = Color.Red;
-            grbMenuList.Location = new Point(643, 138);
+            grbMenuList.Location = new Point(614, 138);
             grbMenuList.Name = "grbMenuList";
-            grbMenuList.Size = new Size(269, 315);
+            grbMenuList.Size = new Size(298, 332);
             grbMenuList.TabIndex = 3;
             grbMenuList.TabStop = false;
             grbMenuList.Text = "주문 내역";
             // 
-            // lblTitle
+            // lblTotalCost
             // 
-            lblTitle.AutoSize = true;
-            lblTitle.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lblTitle.ForeColor = Color.Blue;
-            lblTitle.Location = new Point(64, 36);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(437, 62);
-            lblTitle.TabIndex = 4;
-            lblTitle.Text = "버거 주문 키오스크";
+            lblTotalCost.AutoSize = true;
+            lblTotalCost.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lblTotalCost.ForeColor = Color.Blue;
+            lblTotalCost.Location = new Point(15, 284);
+            lblTotalCost.Name = "lblTotalCost";
+            lblTotalCost.Size = new Size(148, 31);
+            lblTotalCost.TabIndex = 1;
+            lblTotalCost.Text = "총 금액 : 0원";
             // 
-            // libMenuList
+            // lstOrder
             // 
-            libMenuList.Font = new Font("맑은 고딕", 12F);
-            libMenuList.FormattingEnabled = true;
-            libMenuList.Location = new Point(15, 46);
-            libMenuList.Name = "libMenuList";
-            libMenuList.Size = new Size(238, 200);
-            libMenuList.TabIndex = 0;
+            lstOrder.Font = new Font("맑은 고딕", 14F);
+            lstOrder.ForeColor = Color.Blue;
+            lstOrder.FormattingEnabled = true;
+            lstOrder.Location = new Point(15, 46);
+            lstOrder.Name = "lstOrder";
+            lstOrder.Size = new Size(264, 221);
+            lstOrder.TabIndex = 0;
+            // 
+            // lblAppName
+            // 
+            lblAppName.AutoSize = true;
+            lblAppName.Font = new Font("맑은 고딕", 28.2F, FontStyle.Regular, GraphicsUnit.Point, 129);
+            lblAppName.ForeColor = Color.Blue;
+            lblAppName.Location = new Point(64, 36);
+            lblAppName.Name = "lblAppName";
+            lblAppName.Size = new Size(437, 62);
+            lblAppName.TabIndex = 4;
+            lblAppName.Text = "버거 주문 키오스크";
             // 
             // btnClear
             // 
@@ -261,17 +274,7 @@
             btnClear.TabIndex = 5;
             btnClear.Text = "초기화";
             btnClear.UseVisualStyleBackColor = false;
-            // 
-            // lblStatus
-            // 
-            lblStatus.AutoSize = true;
-            lblStatus.Font = new Font("맑은 고딕", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 129);
-            lblStatus.ForeColor = Color.Blue;
-            lblStatus.Location = new Point(15, 264);
-            lblStatus.Name = "lblStatus";
-            lblStatus.Size = new Size(140, 31);
-            lblStatus.TabIndex = 1;
-            lblStatus.Text = "총금액 : 0원";
+            btnClear.Click += btnInit_Click;
             // 
             // Form1
             // 
@@ -279,18 +282,18 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(973, 613);
             Controls.Add(btnClear);
-            Controls.Add(lblTitle);
+            Controls.Add(lblAppName);
             Controls.Add(grbMenuList);
             Controls.Add(grbAddMenu);
             Controls.Add(grbMenu);
             Controls.Add(btnOrder);
             Name = "Form1";
-            Text = "Form1";
+            Text = "Burger Kiosk v1.0";
             grbMenu.ResumeLayout(false);
             grbMenu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pibChikenBurger).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pibBeefBurger).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pibburger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picChickenBurger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picBulgogiBurger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)picHamBurger).EndInit();
             grbAddMenu.ResumeLayout(false);
             grbAddMenu.PerformLayout();
             grbMenuList.ResumeLayout(false);
@@ -303,21 +306,21 @@
 
         private Button btnOrder;
         private GroupBox grbMenu;
-        private RadioButton rbtnChikenBurger;
-        private RadioButton rbtnBeefBurger;
-        private RadioButton rbtnBurger;
+        private RadioButton rdoChickenBurger;
+        private RadioButton rdoBulgogiBurger;
+        private RadioButton rdoHamBurger;
         private GroupBox grbAddMenu;
         private GroupBox grbMenuList;
-        private PictureBox pibburger;
-        private PictureBox pibChikenBurger;
-        private PictureBox pibBeefBurger;
-        private Label lblTitle;
-        private CheckBox chkAddsorse;
-        private CheckBox chkAddchize;
-        private CheckBox chkcola;
-        private CheckBox chkkamti;
-        private ListBox libMenuList;
-        private Label lblStatus;
+        private PictureBox picHamBurger;
+        private PictureBox picChickenBurger;
+        private PictureBox picBulgogiBurger;
+        private Label lblAppName;
+        private CheckBox chkSause;
+        private CheckBox chkCheese;
+        private CheckBox chkCola;
+        private CheckBox chkPotato;
+        private ListBox lstOrder;
+        private Label lblTotalCost;
         private Button btnClear;
     }
 }
