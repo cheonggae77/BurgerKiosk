@@ -3,9 +3,40 @@
     public partial class Form1 : Form
     {
         int totalCost = 0;
+        private readonly Control[] tabCycleControls;
+
         public Form1()
         {
             InitializeComponent();
+            tabCycleControls = [btnOrder, btnClear, rdoHamBurger, chkPotato];
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Tab)
+            {
+                int index = Array.FindIndex(tabCycleControls, c => c.Focused);
+                if (index >= 0)
+                {
+                    int next = (index + 1) % tabCycleControls.Length;
+                    tabCycleControls[next].Focus();
+                    return true;
+                }
+            }
+            if (keyData == Keys.Enter)
+            {
+                if (ActiveControl is CheckBox chk)
+                {
+                    chk.Checked = !chk.Checked;
+                    return true;
+                }
+                if (ActiveControl is RadioButton rdo)
+                {
+                    rdo.Checked = true;
+                    return true;
+                }
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void btnOrder_Click(object sender, EventArgs e)
