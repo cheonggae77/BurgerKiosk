@@ -47,8 +47,15 @@
                 lstOrder.Items.Add("소스 500원");
                 totalCost += 500;
             }
-            lblTotalCost.Text = $"총 금액 : {totalCost.ToString("N0")}원";
-            
+            if (!rdoHamBurger.Checked && !rdoBulgogiBurger.Checked && !rdoChickenBurger.Checked && !chkPotato.Checked && !chkCola.Checked && !chkCheese.Checked && !chkSause.Checked)
+            {
+                lblTotalCost.Text = "메뉴를 선택해주세요.";
+
+            }
+            else
+            {
+                lblTotalCost.Text = $"총 금액 : {totalCost.ToString("N0")}원";
+            }
         }
 
         private void btnInit_Click(object sender, EventArgs e)
